@@ -26,7 +26,7 @@
 
 	<!-- 使用SET元素,防止动态SQL语句更新失败 -->
 	<update id="updateBlog" parameterType="Blog">
-		UPDATE tb_blog
+		UPDATE t_blog
 		<set>
 			<if test="title !=null and title !=''">
 				title = #{title},
@@ -34,11 +34,11 @@
 			<if test="summary != null and summary != ''">
 				summary = #{summary},
 			</if>
-			<if test="content ！= null and content !=''">
+			<if test="content != null and content !=''">
 				content = #{content},
 			</if>
 			<if test="blogType.id != null">
-				type_id = #{blogType.id}
+				type_id = #{blogType.id},
 			</if>
 			<if test="clickHit != null">
 				clickHit = #{clickHit},
@@ -46,7 +46,7 @@
 			<if test="replyHit != null">
 				replyHit = #{replyHit},
 			</if>
-			<if test="keyWord !=null and keyWord=''">
+			<if test="keyWord !=null and keyWord!=''">
 				keyWord = #{keyWord}
 			</if>
 		</set>
@@ -61,7 +61,7 @@
 	</insert>
 
 	<delete id="deleteBlog" parameterType="Integer">
-		DELETE * FROM tb_blog WHERE id=#{id}
+		DELETE FROM t_blog WHERE id=#{id}
 	</delete>
 </mapper>
 

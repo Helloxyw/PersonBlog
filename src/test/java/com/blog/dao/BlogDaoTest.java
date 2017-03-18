@@ -26,8 +26,6 @@ public class BlogDaoTest {
 	private BlogDao blogDao;
 	
 	
-	
-	
 	@Test
 	public void testAddBlog(){
 		
@@ -35,7 +33,7 @@ public class BlogDaoTest {
 		blogType.setId(1000);
 		blogType.setTypeName("java类别");
 //		blogType.setBlogCount(blogCount);
-		blogType.setOrderNum("1");
+		blogType.setOrderNum(1);
 		
 		Blog blog = new Blog();
 		blog.setTitle("这是个标题");
@@ -52,5 +50,32 @@ public class BlogDaoTest {
 		blogDao.addBlog(blog);
 		
 	}
-
+	
+	@Test
+	public void testFindById(){
+		Integer id = 2;
+		Blog blog = blogDao.findById(id);
+		System.out.println(blog);
+	}
+	
+	@Test
+	public void testUpdateBlog(){
+		Integer id = 2;
+		Blog blog = blogDao.findById(id);
+		System.out.println(blog);
+		blog.setTitle("送别");
+		blog.setSummary("送别诗歌");
+		blog.setContent("长亭外古道边");
+		blog.setKeyWord("李叔同");
+		System.out.println(blog);
+		blogDao.updateBlog(blog);
+	}
+	
+	@Test
+	public void testDeleteBlog(){
+		Integer id = 5;
+		Blog blog = blogDao.findById(id);
+		System.out.println(blog);
+		blogDao.deleteBlog(blog);
+	}
 }

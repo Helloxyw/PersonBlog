@@ -1,12 +1,12 @@
 package com.blog.entity;
 
 public class BlogType {
-	
-	private Integer id; 
+
+	private Integer id;
 	private String typeName;
-	private String orderNum;
-	
-	private Integer blogCount;	//统计不同类型博客数量
+	private Integer orderNum;
+
+	private Integer blogCount; // 统计不同类型博客数量
 
 	public Integer getId() {
 		return id;
@@ -32,15 +32,17 @@ public class BlogType {
 		this.blogCount = blogCount;
 	}
 
-	public String getOrderNum() {
+	public Integer getOrderNum() {
 		return orderNum;
 	}
 
-	public void setOrderNum(String orderNum) {
+	public void setOrderNum(Integer orderNum) {
 		this.orderNum = orderNum;
 	}
-	
-	
-	
+
+	public String toString() {
+		return "   The blogType.id :" + this.getId()+"; typeName :" + this.getTypeName() + ";orderNum : "
+				+ this.getOrderNum();
+	}
 
 }
