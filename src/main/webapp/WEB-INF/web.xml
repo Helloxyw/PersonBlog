@@ -4,6 +4,11 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 
+<display-name>PersonBlog</display-name>
+<welcome-file-list>
+	<welcome-file>a.jsp</welcome-file>
+</welcome-file-list>
+
 <!-- maven命令创建的servlet版本较低，默认没有打开JSTL，所以更改servlet版本为3.0 -->
   <!-- 配置DispatcherServlet -->
 	<servlet>
