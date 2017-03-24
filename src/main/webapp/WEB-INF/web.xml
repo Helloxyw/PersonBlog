@@ -6,7 +6,7 @@
 
 <display-name>PersonBlog</display-name>
 <welcome-file-list>
-	<welcome-file>a.jsp</welcome-file>
+	<welcome-file>index.jsp</welcome-file>
 </welcome-file-list>
 
 <!-- maven命令创建的servlet版本较低，默认没有打开JSTL，所以更改servlet版本为3.0 -->
