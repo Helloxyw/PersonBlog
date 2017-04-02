@@ -1,5 +1,8 @@
 package com.blog.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +41,12 @@ public class BlogServiceImpl implements BlogService {
 	public Integer deleteBlog(Blog blog) {
 		// TODO Auto-generated method stub
 		return blogDao.deleteBlog(blog);
+	}
+
+	@Override
+	public List<Blog> listBlog(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return blogDao.listBlog(map);
 	}
 
 }

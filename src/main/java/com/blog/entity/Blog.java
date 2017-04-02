@@ -1,6 +1,8 @@
 package com.blog.entity;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Blog {
 
@@ -19,7 +21,16 @@ public class Blog {
 	private Integer blogCount; // 博客数量,非博客实际属性,用于根据发布日期归档查询
 	private String relaseDateStr; // 发布日期的字符串，只取年月
 
-	// private List<String> imageList = new
+	// 博客里存的照片，用于显示缩略图
+	private List<String> imageList = new LinkedList<String>(); 
+
+	public List<String> getImageList() {
+		return imageList;
+	}
+
+	public void setImageList(List<String> imageList) {
+		this.imageList = imageList;
+	}
 
 	public Integer getId() {
 		return id;

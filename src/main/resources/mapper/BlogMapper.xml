@@ -20,8 +20,28 @@
 	</resultMap>
 
 
+	<select id="listBlog" parameterType="Map" resultMap="BlogResult">
+		SELECT * FROM t_blog
+		<where>
+			<if test="title !=null and title!='' ">
+				and title like #{title}
+			</if>
+			<if test="typeId !=null and typeId!=''">
+				and type_id = #{typeId}
+			</if>
+			<if test="releaseDateStr!=null and releaseDateStr!=''">
+				and DATE_FORMAT(releaseDate,'%Y年%m月')=#{releaseDateStr}
+			</if>
+		</where>
+		ORDER BY releaseDate DESC <!-- 按照relaseDate逆序排序 -->
+		<if test="start!=null and pageSize!=null">
+			limit #{start},#{pageSize}
+		</if>
+	</select>
+
 	<select id="findById" parameterType="Integer" resultMap="BlogResult">
-		SELECT * FROM t_blog WHERE id=#{id}
+		SELECT *
+		FROM t_blog WHERE id=#{id}
 	</select>
 
 	<!-- 使用SET元素,防止动态SQL语句更新失败 -->
@@ -61,7 +81,8 @@
 	</insert>
 
 	<delete id="deleteBlog" parameterType="Integer">
-		DELETE FROM t_blog WHERE id=#{id}
+		DELETE FROM t_blog WHERE
+		id=#{id}
 	</delete>
 </mapper>
 

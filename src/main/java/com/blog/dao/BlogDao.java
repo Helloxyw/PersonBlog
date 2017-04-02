@@ -1,5 +1,8 @@
 package com.blog.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.blog.entity.Blog;
 
 
@@ -18,6 +21,9 @@ public interface BlogDao {
 	
 	//根据id获取博客
 	public Blog findById(Integer id);
+
+	//分页查询博客
+	public List<Blog> listBlog(Map<String, Object> map);
 	
 	
 }

@@ -7,6 +7,13 @@ public class PageBean {
 	private Integer page;  //第几页
 	private Integer pageSize;	//分页大小
 	private Integer start;	//起始页
+	
+	
+	public PageBean(Integer page, Integer pageSize) {
+		super();
+		this.page = page;
+		this.pageSize = pageSize;
+	}
 	public Integer getPage() {
 		return page;
 	}

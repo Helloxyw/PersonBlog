@@ -63,7 +63,7 @@
 		<div class="container">
 			<br>
 			<h1>Ricardo Xu</h1>
-			<h2>åå®¢åè¡¨</h2>
+			<h2>菜鸟后端</h2>
 			<div class="row">
 				<br>
 				<br>

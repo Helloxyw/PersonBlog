@@ -111,7 +111,7 @@
 				<h3>OUR SERVICES</h3>
 				<br> <br>
 				<div class="col-lg-3">
-					<a href="item.jsp"><img src="assets/img/s1.png"></a>
+					<a href="blogList.jsp"><img src="assets/img/s1.png"></a>
 					<h4>博客列表</h4>
 					<p>Lorem Ipsum is simply dummy text of the printing and
 						typesetting industry. Lorem Ipsum has been the industry's standard
@@ -155,13 +155,13 @@
 				<br>
 				<br>
 				<div class="col-lg-4 port-space">
-					<a href="item.jsp"><img src="assets/img/work1.png"></a>
+					<a href="blogList.jsp"><img src="assets/img/work1.png"></a>
 				</div>
 				<div class="col-lg-4 port-space">
-					<a href="item.jsp"><img src="assets/img/work2.png"></a>
+					<a href="blogList.jsp"><img src="assets/img/work2.png"></a>
 				</div>
 				<div class="col-lg-4 port-space">
-					<a href="item.jsp"><img src="assets/img/work3.png"></a>
+					<a href="blogList.jsp"><img src="assets/img/work3.png"></a>
 				</div>				
 			</div>	
 		</div>

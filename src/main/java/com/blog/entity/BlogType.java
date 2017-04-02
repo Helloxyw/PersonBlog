@@ -40,6 +40,7 @@ public class BlogType {
 		this.orderNum = orderNum;
 	}
 
+	@Override
 	public String toString() {
 		return "   The blogType.id :" + this.getId()+"; typeName :" + this.getTypeName() + ";orderNum : "
 				+ this.getOrderNum();
