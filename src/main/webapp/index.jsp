@@ -111,7 +111,7 @@
 				<h3>OUR SERVICES</h3>
 				<br> <br>
 				<div class="col-lg-3">
-					<a href="blogList.jsp"><img src="assets/img/s1.png"></a>
+					<a href="blogList"><img src="assets/img/s1.png"></a>
 					<h4>博客列表</h4>
 					<p>Lorem Ipsum is simply dummy text of the printing and
 						typesetting industry. Lorem Ipsum has been the industry's standard

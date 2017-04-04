@@ -9,7 +9,7 @@ public class Blog {
 	private Integer id;
 	private String title;
 	private String summary;
-	private Date relaseDate;
+	private Date releaseDate;
 	private Integer clickHit; // 点击次数
 	private Integer replyHit; // 回复次数
 	private String content; // 内容
@@ -19,7 +19,7 @@ public class Blog {
 
 	private BlogType blogType; // 博客类型
 	private Integer blogCount; // 博客数量,非博客实际属性,用于根据发布日期归档查询
-	private String relaseDateStr; // 发布日期的字符串，只取年月
+	private String releaseDateStr; // 发布日期的字符串，只取年月
 
 	// 博客里存的照片，用于显示缩略图
 	private List<String> imageList = new LinkedList<String>(); 
@@ -56,12 +56,12 @@ public class Blog {
 		this.summary = summary;
 	}
 
-	public Date getRelaseDate() {
-		return relaseDate;
+	public Date getReleaseDate() {
+		return releaseDate;
 	}
 
-	public void setRelaseDate(Date relaseDate) {
-		this.relaseDate = relaseDate;
+	public void setReleaseDate(Date relaseDate) {
+		this.releaseDate = relaseDate;
 	}
 
 	public Integer getClickHit() {
@@ -120,12 +120,12 @@ public class Blog {
 		this.blogCount = blogCount;
 	}
 
-	public String getRelaseDateStr() {
-		return relaseDateStr;
+	public String getReleaseDateStr() {
+		return releaseDateStr;
 	}
 
-	public void setRelaseDateStr(String relaseDateStr) {
-		this.relaseDateStr = relaseDateStr;
+	public void setReleaseDateStr(String releaseDateStr) {
+		this.releaseDateStr = releaseDateStr;
 	}
 
 	@Override

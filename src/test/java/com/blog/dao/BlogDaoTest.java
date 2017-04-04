@@ -38,7 +38,7 @@ public class BlogDaoTest {
 		Blog blog = new Blog();
 		blog.setTitle("这是个标题");
 		blog.setSummary("这是个摘要");
-		blog.setRelaseDate(new Date());
+		blog.setReleaseDate(new Date());
 		blog.setClickHit(0);
 		blog.setReplyHit(0);
 		blog.setContent("这是个内容");
@@ -47,7 +47,7 @@ public class BlogDaoTest {
 		
 		System.out.println(blog.toString());
 		
-		blogDao.addBlog(blog);
+		System.out.println(blogDao.addBlog(blog));
 		
 	}
 	

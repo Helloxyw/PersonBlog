@@ -9,7 +9,7 @@
 		<id property="id" column="id" />
 		<result property="title" column="title" />
 		<result property="summary" column="summary" />
-		<result property="relaseDate" column="relaseDate" />
+		<result property="releaseDate" column="releaseDate" />
 		<result property="clickHit" column="clickHit" />
 		<result property="replayHit" column="replayHit" />
 		<result property="content" column="content" />

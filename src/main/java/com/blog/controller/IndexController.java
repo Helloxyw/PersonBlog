@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,19 +22,19 @@ import com.blog.service.BlogService;
 import com.blog.util.StringUtil;
 
 @Controller
-@RequestMapping("/")
 public class IndexController {
 
 	@Resource
 	private BlogService blogService;
 
 	// 请求主页
-	@RequestMapping("/index")
+	@RequestMapping("/blogList")
 	public ModelAndView index(
 			@RequestParam(value = "page", required = false) String page,
 			@RequestParam(value = "typeId", required = false) String typeId,
 			@RequestParam(value = "releaseDateStr", required = false) String releaseDateStr,
 			HttpServletRequest request) {
+		//System.out.println("请求");
 		
 		ModelAndView modelAndView = new ModelAndView();
 		
@@ -55,12 +57,32 @@ public class IndexController {
 		
 		for(Blog blog: blogList){
 			List<String> imageList = blog.getImageList();
-			String blogInfo = blog.getContent(); //获取博客内容
+			String blogInfo = blog.getContent(); //获取博客内容(网页中也就是一些html)转为jsoup的Document
 			Document doc =  Jsoup.parse(blogInfo);
-			
+			Elements jpgs = doc.select("img[src$=.jpg]"); //获取<img>标签中所有后缀是.jpg的元素
+			for(int i = 0;i<jpgs.size();i++){
+				Element jpg = jpgs.get(i); //获取单个元素
+				imageList.add(jpg.toString());//把图片信息存到imageList中
+				if(2==i)
+					break; //只存三张图片信息
+				
+			}
+		}
+		
+		//分页
+		StringBuffer param = new StringBuffer();
+		//拼接参数,主要对于点击文章分类或者日期分类后，查出来的分页，要拼接具体参数
+		if(StringUtil.isNoEmpty(typeId)){
+			param.append("typeId="+typeId+"&");
+		}
+		if(StringUtil.isNoEmpty(releaseDateStr)){
+			param.append("releaseDateStr="+releaseDateStr+"&");
 		}
 		
 		
-		return null;
+		modelAndView.addObject("blogList", blogList);
+		modelAndView.setViewName("blogList");
+		
+		return modelAndView;
 	}
 }
