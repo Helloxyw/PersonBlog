@@ -51,6 +51,11 @@ public class Blogger {
 	public void setImagename(String imagename) {
 		this.imagename = imagename;
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "昵称:" + this.nickname + " 介绍" + this.profile; 
+	}
 
 	
 }

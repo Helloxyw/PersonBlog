@@ -17,7 +17,47 @@
 		<!-- 注入数据库连接池 -->
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-	
+
 	<!--配置基于注解的声明式事务 -->
-	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 自定义Realm -->
+	<bean id="myRealm" class="com.blog.realm.MyRealm"></bean>
+
+	<!-- 安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="myRealm"></property>
+	</bean>
+
+	<!-- Shiro过滤器 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!-- Shiro的核心安全接口，这个属性是必须的 -->
+		<property name="securityManager" ref="securityManager"></property>
+		<!-- 身份认证失败，则跳转到登录页面的配置 -->
+		<property name="loginUrl" value="/login.jsp"></property>
+		<!-- 权限认证失败，就跳转到指定页面，因为个人博客就一个人登录，所以就不需要权限了 -->
+		<!-- <property name="unauthorizedUrl" value="/authorized.jsp"></property> -->
+
+		<!-- Shiro连接约束配置，即过滤链 -->
+		<!-- 具体配置需要拦截哪些 URL, 以及访问对应的 URL 时使用 Shiro 的什么 Filter 进行拦截. -->
+		<property name="filterChainDefinitions">
+			<value>
+				/login = anon
+				/admin/** = authc
+			</value>
+		</property>
+	</bean>
+	
+	<!--保证实现Shiro内部lifecycle函数的bean执行  -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+	<!-- 开启Shiro注解 -->
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor"
+	/>
+	
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor" >
+		<property name="securityManager" ref="securityManager"></property>
+	</bean>
+	
 </beans>
