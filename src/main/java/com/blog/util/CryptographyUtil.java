@@ -14,5 +14,6 @@ public class CryptographyUtil {
 	public static void main(String[] args) {
 		String password = "123456";
 		System.out.println("md5加密:" + md5(password, "javacoder"));
+		System.out.println("md5加密:" + md5("123456","javacoder"));
 	} 
 }

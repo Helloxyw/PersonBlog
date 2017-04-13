@@ -13,7 +13,7 @@ import com.blog.entity.Blogger;
 import com.blog.service.BlogService;
 import com.blog.service.BloggerService;
 
-@Service("BloggerService")
+@Service("bloggerService")
 public class BloggerServiceImpl implements BloggerService {
 
 	@Resource

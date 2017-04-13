@@ -14,15 +14,19 @@
 <title>博客列表</title>
 
 <!-- Bootstrap core CSS -->
-<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/bootstrap.css"
+	rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="assets/css/main.css" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<link href="${pageContext.request.contextPath}/assets/css/main.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/font-awesome.min.css">
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/Chart.js"></script>
-<script src="assets/js/modernizr.custom.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/Chart.js"></script>
+<script
+	src="${pageContext.request.contextPath}/assets/js/modernizr.custom.js"></script>
 
 
 
@@ -45,9 +49,9 @@
 	<nav class="menu" id="theMenu">
 		<div class="menu-wrap">
 			<h1 class="logo">
-				<a href="index.jsp#home">RicardoXu</a>
+				<a href="${pageContext.request.contextPath}/AdminLogin.jsp">RicardoXu</a>
 			</h1>
-			<i class="icon-remove menu-close"></i> <a href="#home"
+			<i class="icon-remove menu-close"></i> <a href="${pageContext.request.contextPath}/index.jsp"
 				class="smoothScroll">Home</a> <a href="#services"
 				class="smoothScroll">Services</a> <a href="#portfolio"
 				class="smoothScroll">Portfolio</a> <a href="#about"
@@ -127,9 +131,10 @@
 							<br /> <i class="icon-globe"></i> ${blog.blogType.typeName }<br />
 						</p>
 					</div>
-				
+
 				</div>
-					<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=2)" width="80%" color=#987cb9 SIZE=10>
+				<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=2)"
+					width="80%" color=#987cb9 SIZE=10>
 			</c:forEach>
 		</div>
 		<!-- /container -->
@@ -280,10 +285,11 @@
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="assets/js/classie.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/retina.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/classie.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/retina.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 	<script>
 		$('.carousel').carousel({
 			interval : 3500

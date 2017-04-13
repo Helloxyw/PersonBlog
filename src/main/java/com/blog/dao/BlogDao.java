@@ -25,5 +25,8 @@ public interface BlogDao {
 	//分页查询博客
 	public List<Blog> listBlog(Map<String, Object> map);
 	
+	//获取总记录数
+	public Long getTotal(Map<String,Object> map);
+	
 	
 }

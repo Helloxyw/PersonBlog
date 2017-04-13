@@ -2,6 +2,7 @@ package com.blog.controller;
 
 import java.security.CryptoPrimitive;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.shiro.SecurityUtils;
@@ -10,13 +11,18 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.portlet.ModelAndView;
 
 import com.blog.entity.Blogger;
+import com.blog.service.BloggerService;
 import com.blog.util.CryptographyUtil;
 
 @Controller
 @RequestMapping("/blogger")
 public class BloggerController {
+	
+	@Resource 
+	private BloggerService bloggerService;
 
 	@RequestMapping("/login")
 	public String login(Blogger blogger, HttpServletRequest request) {
@@ -37,6 +43,16 @@ public class BloggerController {
 			return "login";
 		}
 	}
+	
+	@RequestMapping("/aboutMe")
+	public ModelAndView aboutMe(){
+		ModelAndView modelAndView = new ModelAndView();
+		Blogger blogger = bloggerService.getBloggerData();
+		modelAndView.addObject("blogger", blogger);
+		modelAndView.setViewName("aboutMe");   //博主信息介绍页面
+		return modelAndView;
+	}
+	
 	
 		
 }

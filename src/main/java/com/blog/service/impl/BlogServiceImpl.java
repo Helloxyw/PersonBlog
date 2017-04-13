@@ -49,4 +49,10 @@ public class BlogServiceImpl implements BlogService {
 		return blogDao.listBlog(map);
 	}
 
+	@Override
+	public Long getTotal(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return blogDao.getTotal(map);
+	}
+
 }

@@ -9,7 +9,25 @@
 		<welcome-file>a.jsp</welcome-file>
 	</welcome-file-list>
 
-	<!-- maven命令创建的servlet版本较低，默认没有打开JSTL，所以更改servlet版本为3.0 -->
+	
+	
+
+	<!-- spring监听器 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- spring配置文件 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring/spring-*.xml</param-value>
+	</context-param>
+
+	<!-- 获取博主信息的监听器 -->
+	<listener>
+		<listener-class>com.blog.listener.InitBloggerData</listener-class>
+	</listener>
+
+
 	<!-- 配置DispatcherServlet -->
 	<servlet>
 		<servlet-name>blog-dispatcher</servlet-name>
@@ -23,8 +41,11 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>blog-dispatcher</servlet-name>
-		<!-- 默认匹配所有请求 -->
-		<url-pattern>/</url-pattern>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>blog-dispatcher</servlet-name>
+		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
 
 	<!-- 添加Shiro过滤器 -->
