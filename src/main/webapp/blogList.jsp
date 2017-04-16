@@ -41,6 +41,17 @@
       <script src="assets/js/html5shiv.js"></script>
       <script src="assets/js/respond.min.js"></script>
     <![endif]-->
+    
+<script type="text/javascript">
+	$(function(){
+		var num = $("#blogContent").html();
+		if(num.length > 30){
+			$("#blogContent").html(num.substr(0,30)+"...")
+		}
+	
+	});
+</script>    
+    
 </head>
 
 <body data-spy="scroll" data-offset="0" data-target="#theMenu">
@@ -85,7 +96,7 @@
 		<!-- /container -->
 	</div>
 	<!-- /headerwrap -->
-
+	
 
 	<!-- ========== WHITE SECTION ========== -->
 	<div id="w">
@@ -119,7 +130,7 @@
 					<br> <br>
 					<div class="col-lg-8 desc">
 						<h4>${blog.summary }</h4>
-						<p>${blog.content}</p>
+						<span id="blogContent"><p>${blog.content}</p></span>
 					</div>
 					<div class="col-lg-4 desc desc-b">
 						<h4>Blog Data</h4>

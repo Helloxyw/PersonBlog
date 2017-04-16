@@ -14,7 +14,7 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.portlet.ModelAndView;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.blog.entity.Blog;
 import com.blog.entity.PageBean;
@@ -22,7 +22,7 @@ import com.blog.service.BlogService;
 import com.blog.util.StringUtil;
 
 @Controller
-@RequestMapping("/index")
+@RequestMapping("/")
 public class IndexController {
 
 	@Resource
@@ -35,7 +35,8 @@ public class IndexController {
 			@RequestParam(value = "typeId", required = false) String typeId,
 			@RequestParam(value = "releaseDateStr", required = false) String releaseDateStr,
 			HttpServletRequest request) {
-		//System.out.println("请求");
+		
+		System.out.println("请求");
 		
 		ModelAndView modelAndView = new ModelAndView();
 		
@@ -83,6 +84,8 @@ public class IndexController {
 		
 		modelAndView.addObject("blogList", blogList);
 		modelAndView.setViewName("blogList");
+		System.out.println(blogList);
+		request.setAttribute("list", blogList);
 		
 		return modelAndView;
 	}

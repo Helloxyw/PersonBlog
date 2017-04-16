@@ -3,10 +3,10 @@ package com.blog.entity;
 public class BlogType {
 
 	private Integer id;
-	private String typeName;
-	private Integer orderNum;
+	private String typeName;   //类型名
+	private Integer orderNum;  //博客排序
 
-	private Integer blogCount; // 统计不同类型博客数量
+	private Integer blogCount; // 统计不同类型的博客数量
 
 	public Integer getId() {
 		return id;
